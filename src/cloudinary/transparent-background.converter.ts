@@ -29,7 +29,7 @@ export const enum Size {
  * in non-production environments.
  */
 const fetchUrl = `https://res.cloudinary.com/${
-  import.meta.env.ORYX_CLOUDINARY_ID
+  (<any>import.meta).env.ORYX_CLOUDINARY_ID
 }/image/fetch/`;
 
 /**
