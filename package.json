@@ -1,0 +1,7 @@
+{
+  "name": "@spryker-oryx/labs",
+  "version": "0.1.0",
+  "type": "module",
+  "author": "Spryker Sytems GmbH",
+  "description": "Demo/experimental functionlaity"
+}
