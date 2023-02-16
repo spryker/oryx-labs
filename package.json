@@ -5,6 +5,6 @@
   "author": "Spryker Systems GmbH",
   "description": "Demo features that contribute to the main Oryx component library. Please keep in mind that these components are experimental and are not suitable for use in production environments.",
   "dependencies": {
-    "lit": "^2.6.1"
+    "lit": "^2.0.0"
   }
 }
