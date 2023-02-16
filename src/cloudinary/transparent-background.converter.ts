@@ -28,9 +28,8 @@ export const enum Size {
  * The CLOUDINARY_ID is required to resolve images from Cloudinary. You can use a free plan to resolve images
  * in non-production environments.
  */
-const fetchUrl = `https://res.cloudinary.com/${
-  import.meta.env.ORYX_CLOUDINARY_ID
-}/image/fetch/`;
+const fetchUrl = `https://res.cloudinary.com/${(<any>import.meta).env.ORYX_CLOUDINARY_ID
+  }/image/fetch/`;
 
 /**
  * Simple product image convertor that takes the large product image and assigns it to different image formats.
@@ -44,15 +43,12 @@ export const productImageConverter: Provider = {
   provide: 'oryx.ProductMediaNormalizer*Default',
   useValue: (image: ApiProductModel.Image) => {
     return {
-      [Size.Xs]: `${fetchUrl}/e_bgremoval/w_100,f_auto/${
-        image.externalUrlSmall ?? image.externalUrlLarge
-      }`,
-      [Size.Sm]: `${fetchUrl}/e_bgremoval/w_250,f_auto/${
-        image.externalUrlSmall ?? image.externalUrlLarge
-      }`,
-      [Size.Lg]: `${fetchUrl}/e_bgremoval/f_auto/${
-        image.externalUrlLarge ?? image.externalUrlSmall
-      }`,
+      [Size.Xs]: `${fetchUrl}/e_bgremoval/w_100,f_auto/${image.externalUrlSmall ?? image.externalUrlLarge
+        }`,
+      [Size.Sm]: `${fetchUrl}/e_bgremoval/w_250,f_auto/${image.externalUrlSmall ?? image.externalUrlLarge
+        }`,
+      [Size.Lg]: `${fetchUrl}/e_bgremoval/f_auto/${image.externalUrlLarge ?? image.externalUrlSmall
+        }`,
     };
   },
 };
