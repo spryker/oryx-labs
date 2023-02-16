@@ -8,31 +8,28 @@
  *   Size,
  * } from '@spryker-oryx/product';
  */
-
 module ApiProductModel {
   export type Image = any;
 }
-const DefaultProductMediaNormalizer = {};
-const Size: any = {};
 type Provider = any;
 
-declare global {
-  interface ImportMeta {
-    readonly env: {
-      CLOUDINARY_ID: string;
-    };
-  }
+export const enum Size {
+  Xs = 'xs',
+  Sm = 'sm',
+  Md = 'md',
+  Lg = 'lg',
+  Xl = 'xl',
 }
 
 /**
  * Cloudinary provides an http API that can be used to _fetch_ remote resource and enable on-the-fly
  * transformation. The transformed image got distributed on the Cloudinary CDN.
  *
- * The CLOUDINARY_ID is required to resolve images from Cloudinary. You can use a free plan to resolve images in
- * non-production environments.
+ * The CLOUDINARY_ID is required to resolve images from Cloudinary. You can use a free plan to resolve images
+ * in non-production environments.
  */
 const fetchUrl = `https://res.cloudinary.com/${
-  import.meta.env.CLOUDINARY_ID
+  import.meta.env.ORYX_CLOUDINARY_ID
 }/image/fetch/`;
 
 /**
@@ -44,7 +41,7 @@ const fetchUrl = `https://res.cloudinary.com/${
  * - distributed images (no network latency)
  */
 export const productImageConverter: Provider = {
-  provide: DefaultProductMediaNormalizer,
+  provide: 'oryx.ProductMediaNormalizer*Default',
   useValue: (image: ApiProductModel.Image) => {
     return {
       [Size.Xs]: `${fetchUrl}/e_bgremoval/w_100,f_auto/${
