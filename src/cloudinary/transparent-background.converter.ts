@@ -1,25 +1,9 @@
-/**
- * TODO: replace the mimic types whenever the packages are published
- *
- * import { Provider } from '@spryker-oryx/di';
- * import {
- *   ApiProductModel,
- *   DefaultProductMediaNormalizer,
- *   Size,
- * } from '@spryker-oryx/product';
- */
-module ApiProductModel {
-  export type Image = any;
-}
-type Provider = any;
-
-export const enum Size {
-  Xs = 'xs',
-  Sm = 'sm',
-  Md = 'md',
-  Lg = 'lg',
-  Xl = 'xl',
-}
+import { Provider } from '@spryker-oryx/di';
+import {
+  ApiProductModel,
+  DefaultProductMediaNormalizer,
+  Size,
+} from '@spryker-oryx/product';
 
 /**
  * Cloudinary provides an http API that can be used to _fetch_ remote resource and enable on-the-fly
@@ -40,8 +24,8 @@ const fetchUrl = `https://res.cloudinary.com/${
  * - transparent image backgrounds
  * - distributed images (no network latency)
  */
-export const productImageConverter: Provider = {
-  provide: 'oryx.ProductMediaNormalizer*Default',
+export const cloudinaryImageConverter: Provider = {
+  provide: DefaultProductMediaNormalizer,
   useValue: (image: ApiProductModel.Image) => {
     return {
       [Size.Xs]: `${fetchUrl}/e_bgremoval/w_100,f_auto/${

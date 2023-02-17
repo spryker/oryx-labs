@@ -1,16 +1,9 @@
+import { Provider } from '@spryker-oryx/di';
+import { ComponentMapping } from '@spryker-oryx/experience';
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
-/**
- * TODO: replace the mimic types whenever the packages are published
- *
- * import { Provider } from '@spryker-oryx/di';
- * import { ComponentMapping } from '@spryker-oryx/experience';
- */
-const ComponentMapping = {};
-type Provider = any;
-
-export const componentsProvider: Provider = {
+export const bazaarVoiceComponentMapping: Provider = {
   provide: ComponentMapping,
   useValue: {
     ['bv-product-average-rating']: {

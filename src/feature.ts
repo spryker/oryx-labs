@@ -1,6 +1,6 @@
-import { productImageConverter } from './cloudinary';
+import { bazaarVoiceComponentMapping } from './bazaarvoice';
+import { cloudinaryImageConverter } from './cloudinary';
 import * as components from './components';
-
 export * from './components';
 
 // tmp solution until we've published our packages and we can pull this from core
@@ -15,5 +15,6 @@ export const labsComponents = Object.values(components);
  * and not covered with automated tests.
  */
 export const labsFeature: AppFeature = {
-  providers: [productImageConverter],
+  components: labsComponents,
+  providers: [cloudinaryImageConverter, bazaarVoiceComponentMapping],
 };
