@@ -1,5 +1,4 @@
 {
-  "root": "libs/template/labs",
   "sourceRoot": "libs/template/labs/src",
   "projectType": "library",
   "targets": {
