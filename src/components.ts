@@ -1,1 +1,1 @@
-export * from './cloudinary';
+export * from './bazaarvoice/components';
