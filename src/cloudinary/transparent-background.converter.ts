@@ -2,8 +2,8 @@ import { Provider } from '@spryker-oryx/di';
 import {
   ApiProductModel,
   DefaultProductMediaNormalizer,
-  Size,
 } from '@spryker-oryx/product';
+import { Size } from '@spryker-oryx/ui';
 
 /**
  * Cloudinary provides an http API that can be used to _fetch_ remote resource and enable on-the-fly
